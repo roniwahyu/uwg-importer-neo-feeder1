@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AktivitasMahasiswaController;
+use App\Http\Controllers\BimbinganMahasiswa;
 use App\Http\Controllers\KelasController;
 use App\Http\Controllers\ProfilController;
 use App\Http\Controllers\SandboxController;
@@ -49,6 +50,9 @@ Route::middleware('authneofeeder')->group(function() {
             Route::get('aktivitas-mahasiswa', [AktivitasMahasiswaController::class, 'index']);
             Route::post('aktivitas-mahasiswa', [AktivitasMahasiswaController::class, 'store']);
 
+            Route::get('bimbingan-mahasiswa', [BimbinganMahasiswa::class, 'index']);
+            Route::post('bimbingan-mahasiswa', [BimbinganMahasiswa::class, 'store']);
+
             Route::get('ref-agama', [ReferensiController::class, 'agama']);
             Route::get('ref-alat-transportasi', [ReferensiController::class, 'alatTransportasi']);
             Route::get('ref-jalur-daftar', [ReferensiController::class, 'jalurDaftar']);
@@ -65,7 +69,7 @@ Route::middleware('authneofeeder')->group(function() {
             Route::get('ref-wilayah-provinsi', [ReferensiController::class, 'wilayahProvinsi']);
             Route::get('ref-wilayah-kota', [ReferensiController::class, 'wilayahKota']);
             Route::get('ref-wilayah-kecamatan', [ReferensiController::class, 'wilayahKecamatan']);
-
+            Route::get('ref-dosen', [ReferensiController::class, 'dosen']);
             Route::get('log-import', [LogImportController::class, 'index']);
 
             Route::get('informasi', [InformasiController::class, 'index']);

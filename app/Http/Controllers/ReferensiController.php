@@ -8,6 +8,18 @@ use Illuminate\Http\Request;
 
 class ReferensiController extends Controller
 {
+    public function dosen(Request $request){
+        if($request->ajax()){
+            $getDosen=new NeoFeeder([
+                'act'=>'GetListDosen',
+                'order'=>'nama_dosen',
+                'filter'=>"id_status_aktif='1'"
+            ]);
+            return $getDosen->getData();
+
+        }
+        return view('dashboard.referensi.dosen');
+    }
     public function agama(Request $request)
     {
         if($request->ajax()) {

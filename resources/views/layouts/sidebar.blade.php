@@ -36,6 +36,12 @@
                 <span class="menu-title">Aktivitas Mahasiswa</span>
             </a>
         </li>
+        <li class="nav-item {{ Request::is('dashboard/bimbingan-mahasiswa*') ? 'active' : '' }}">
+            <a class="nav-link" href="{{ url('dashboard/bimbingan-mahasiswa') }}">
+                <i class="fa-solid fa-flask fa-fw mr-2"></i>
+                <span class="menu-title">Bimbingan Mahasiswa</span>
+            </a>
+        </li>
         <li class="nav-item {{ Request::is('dashboard/ref*') ? 'active' : '' }}">
             <a class="nav-link" data-toggle="collapse" href="#referensi" aria-expanded="false"
                 aria-controls="referensi">
