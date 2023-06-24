@@ -20,6 +20,18 @@ class ReferensiController extends Controller
         }
         return view('dashboard.referensi.dosen');
     }
+    public function kategori(Request $request){
+        if($request->ajax()){
+            $getKategori=new NeoFeeder([
+                'act'=>'GetKategoriKegiatan',
+                'order'=>'id_kategori_kegiatan',
+                // 'filter'=>"id_status_aktif='1'"
+            ]);
+            return $getKategori->getData();
+
+        }
+        return view('dashboard.referensi.kategori');
+    }
     public function agama(Request $request)
     {
         if($request->ajax()) {

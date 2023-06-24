@@ -70,6 +70,7 @@ Route::middleware('authneofeeder')->group(function() {
             Route::get('ref-wilayah-kota', [ReferensiController::class, 'wilayahKota']);
             Route::get('ref-wilayah-kecamatan', [ReferensiController::class, 'wilayahKecamatan']);
             Route::get('ref-dosen', [ReferensiController::class, 'dosen']);
+            Route::get('ref-kategori', [ReferensiController::class, 'kategori']);
             Route::get('log-import', [LogImportController::class, 'index']);
 
             Route::get('informasi', [InformasiController::class, 'index']);

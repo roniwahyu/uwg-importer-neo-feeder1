@@ -6,6 +6,7 @@
                 <span class="menu-title">Profil</span>
             </a>
         </li>
+        
         <li class="nav-item {{ Request::is('dashboard/mahasiswa*') ? 'active' : '' }}">
             <a class="nav-link" href="{{ url('dashboard/mahasiswa') }}">
                 <i class="fa-solid fa-users fa-fw mr-2"></i>
@@ -51,6 +52,10 @@
             </a>
             <div class="collapse {{ Request::is('dashboard/ref*') ? 'show' : '' }}" id="referensi">
                 <ul class="nav flex-column sub-menu">
+                    <li class="nav-item"><a class="nav-link" href="{{ url('dashboard/ref-dosen') }}">Dosen</a>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="{{ url('dashboard/ref-kategori') }}">Kategori Kegiatan</a>
+                    </li>
                     <li class="nav-item"><a class="nav-link" href="{{ url('dashboard/ref-agama') }}">Agama</a></li>
                     <li class="nav-item"><a class="nav-link" href="{{ url('dashboard/ref-alat-transportasi') }}">Alat
                             Transportasi</a></li>
