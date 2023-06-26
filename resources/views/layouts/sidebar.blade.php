@@ -56,6 +56,8 @@
                     </li>
                     <li class="nav-item"><a class="nav-link" href="{{ url('dashboard/ref-kategori') }}">Kategori Kegiatan</a>
                     </li>
+                    <li class="nav-item"><a class="nav-link" href="{{ url('dashboard/ref-aktivitas') }}">Aktivitas Mahasiswa</a>
+                    </li>
                     <li class="nav-item"><a class="nav-link" href="{{ url('dashboard/ref-agama') }}">Agama</a></li>
                     <li class="nav-item"><a class="nav-link" href="{{ url('dashboard/ref-alat-transportasi') }}">Alat
                             Transportasi</a></li>

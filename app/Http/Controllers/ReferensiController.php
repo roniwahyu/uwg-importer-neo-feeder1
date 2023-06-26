@@ -32,6 +32,32 @@ class ReferensiController extends Controller
         }
         return view('dashboard.referensi.kategori');
     }
+    public function aktivitas(Request $request){
+        $getSemester = new NeoFeeder([
+            'act' => 'GetSemester',
+            'filter' => "a_periode_aktif = '1'",
+            'order' => "id_semester desc"
+        ]);
+        $getProdi = new NeoFeeder([
+            'act' => 'GetProdi',
+            'order' => 'nama_jenjang_pendidikan, nama_program_studi',
+            'filter'=>"status='A'"
+        ]);
+
+        if($request->ajax()){
+            $getAktivitas=new NeoFeeder([
+                'act'=>'GetListAktivitasMahasiswa',
+                'order'=>'id_semester',
+                'filter'=>"id_semester='20222'"
+            ]);
+            return $getAktivitas->getData();
+
+        }
+        return view('dashboard.referensi.aktivitas',[
+            'semester' => $getSemester->getData(),
+            'prodi'=>$getProdi->getData(),
+        ]);
+    }
     public function agama(Request $request)
     {
         if($request->ajax()) {
