@@ -21,7 +21,16 @@ class AktivitasMahasiswaController extends Controller
             'semester' => $getSemester->getData()
         ]);
     }
-
+    public function getProdi($kode_program_studi){
+        // $kode_program_studi="0725108202";
+        $getProdi = new NeoFeeder([
+            'act' => 'GetProdi',
+            'filter' => "kode_program_studi = '".$kode_program_studi."'",
+            'order' => ""
+        ]);
+        
+        return ($getProdi->getData())['data'][0]; //getDataProdi
+    }
     public function store(Request $request)
     {
         $request->validate([
@@ -43,7 +52,9 @@ class AktivitasMahasiswaController extends Controller
                     $recordInsertAktivitasMahasiswa = [
                         'jenis_anggota' => $data['jenis_anggota'],
                         'id_jenis_aktivitas' => $data['id_jenis_aktivitas'],
-                        'id_prodi' => $data['id_prodi'],
+                        // 'id_prodi' => $data['id_prodi'],
+                        // 'id_dosen' => ($this->getDosen($data['nidn']))['id_dosen'],
+                        'id_prodi'=>($this->getProdi($data['kode_program_studi']))['id_prodi'],
                         'id_semester' => $request->semester,
                         'judul' => $data['judul'],
                         'keterangan' => $data['keterangan'],
