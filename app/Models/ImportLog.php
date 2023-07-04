@@ -14,6 +14,6 @@ class ImportLog extends Model
 
     public function getCreatedAtAttribute($value)
     {
-        return Carbon::parse($value)->setTimeZone('Asia/Makassar')->format('d-m-Y H:i:s');
+        return Carbon::parse($value)->setTimeZone('Asia/Jakarta')->format('d-m-Y H:i:s');
     }
 }
