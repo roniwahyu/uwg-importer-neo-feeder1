@@ -40,12 +40,12 @@ class BimbinganMahasiswaImport implements
         return [
             '*.id_aktivitas' => 'required',
             '*.id_kategori_kegiatan' => 'required',
-            '*.id_dosen' => 'required',
+            // '*.id_dosen' => 'required',
+            '*.nidn' => 'required',
             '*.pembimbing_ke' => [
                 'required',
-                Rule::in(['1', '2','3']),
-            ],
-
+                Rule::in(['1', '2']),
+            ]
         ];
     }
 }

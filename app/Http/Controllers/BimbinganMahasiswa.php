@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\ImportLog;
 use App\Helpers\NeoFeeder;
 use Illuminate\Http\Request;
 use App\Imports\BimbinganMahasiswaImport;
@@ -19,7 +20,18 @@ class BimbinganMahasiswa extends Controller
             'semester' => $getSemester->getData()
         ]);
     }
-
+    public function getDosen($nidn){
+        // $nidn="0725108202";
+        $getDosen = new NeoFeeder([
+            'act' => 'GetListDosen',
+            'filter' => "nidn = '".$nidn."'",
+            'order' => ""
+        ]);
+        // return view('dashboard.bimbingan-mahasiswa.print', [
+            // 'semester' => ($getDosen->getData())['data'][0] //getDataDosen
+            // ]);
+        return ($getDosen->getData())['data'][0]; //getDataDosen
+    }
     public function store(Request $request)
     {
         $request->validate([
@@ -35,13 +47,14 @@ class BimbinganMahasiswa extends Controller
             return back()->with('import-error', $bimbingan->failures()[0]);
         } else {
             $dataBimbingan = $bimbingan->toArray($fileUpload);
-
+            // print_r($dataBimbingan);
             foreach ($dataBimbingan[0] as $key => $data) {
                 try {
                     $recordInsertBimbinganMahasiswa = [
                         'id_aktivitas' => $data['id_aktivitas'],
                         'id_kategori_kegiatan' => $data['id_kategori_kegiatan'],
-                        'id_dosen' => $data['id_dosen'],
+                        // 'id_dosen' => $data['id_dosen'],
+                        'id_dosen' => ($this->getDosen($data['nidn']))['id_dosen'],
                         'pembimbing_ke' => $data['pembimbing_ke'],
 
                     ];
