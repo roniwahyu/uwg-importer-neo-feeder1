@@ -93,7 +93,8 @@ http://127.0.0.1:8000
 
 ## Kontak
 
-Email : rivan.hadinata@gmail.com
+Email : rivan.hadinata@gmail.com (core)
+syahroni@widyagama.ac.id (update)
 
 <br/>
 
