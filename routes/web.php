@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AktivitasMahasiswaController;
+use App\Http\Controllers\AnggotaAktivitas;
 use App\Http\Controllers\BimbinganMahasiswa;
 use App\Http\Controllers\KelasController;
 use App\Http\Controllers\ProfilController;
@@ -52,6 +53,10 @@ Route::middleware('authneofeeder')->group(function() {
 
             Route::get('bimbingan-mahasiswa', [BimbinganMahasiswa::class, 'index']);
             Route::post('bimbingan-mahasiswa', [BimbinganMahasiswa::class, 'store']);
+            Route::get('bimbingan-dosen', [BimbinganMahasiswa::class, 'getDosen']);
+
+            Route::get('anggota-aktivitas', [AnggotaAktivitas::class, 'index']);
+            Route::post('anggota-aktivitas', [AnggotaAktivitas::class, 'store']);
 
             Route::get('ref-agama', [ReferensiController::class, 'agama']);
             Route::get('ref-alat-transportasi', [ReferensiController::class, 'alatTransportasi']);
@@ -72,6 +77,9 @@ Route::middleware('authneofeeder')->group(function() {
             Route::get('ref-dosen', [ReferensiController::class, 'dosen']);
             Route::get('ref-kategori', [ReferensiController::class, 'kategori']);
             Route::get('ref-aktivitas', [ReferensiController::class, 'aktivitas']);
+            Route::get('ref-listbimbing', [ReferensiController::class, 'listbimbing']);
+            Route::get('ref-listmahasiswa', [ReferensiController::class, 'listmahasiswa']);
+            Route::get('ref-listanggota', [ReferensiController::class, 'listanggotaaktivitas']);
             Route::get('log-import', [LogImportController::class, 'index']);
 
             Route::get('informasi', [InformasiController::class, 'index']);

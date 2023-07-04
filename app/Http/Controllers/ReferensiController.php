@@ -58,6 +58,84 @@ class ReferensiController extends Controller
             'prodi'=>$getProdi->getData(),
         ]);
     }
+    public function listbimbing(Request $request){
+        $getSemester = new NeoFeeder([
+            'act' => 'GetSemester',
+            'filter' => "a_periode_aktif = '1'",
+            'order' => "id_semester desc"
+        ]);
+        $getProdi = new NeoFeeder([
+            'act' => 'GetProdi',
+            'order' => 'nama_jenjang_pendidikan, nama_program_studi',
+            'filter'=>"status='A'"
+        ]);
+
+        if($request->ajax()){
+            $getBimbingan=new NeoFeeder([
+                'act'=>'GetListBimbingMahasiswa',
+                'order'=>'nidn',
+                'filter'=>"status_sync='belum sync'"
+            ]);
+            return $getBimbingan->getData();
+
+        }
+        return view('dashboard.referensi.list-bimbing',[
+            'semester' => $getSemester->getData(),
+            'prodi'=>$getProdi->getData(),
+        ]);
+    }
+    public function listmahasiswa(Request $request){
+        $getSemester = new NeoFeeder([
+            'act' => 'GetSemester',
+            'filter' => "a_periode_aktif = '1'",
+            'order' => "id_semester desc"
+        ]);
+        $getProdi = new NeoFeeder([
+            'act' => 'GetProdi',
+            'order' => 'nama_jenjang_pendidikan, nama_program_studi',
+            'filter'=>"status='A'"
+        ]);
+
+        if($request->ajax()){
+            $getMahasiswa=new NeoFeeder([
+                'act'=>'GetListMahasiswa',
+                'order'=>'nim',
+                'filter'=>"nama_status_mahasiswa='AKTIF'"
+            ]);
+            return $getMahasiswa->getData();
+
+        }
+        return view('dashboard.referensi.list-mahasiswa',[
+            'semester' => $getSemester->getData(),
+            'prodi'=>$getProdi->getData(),
+        ]);
+    }
+    public function listanggotaaktivitas(Request $request){
+        $getSemester = new NeoFeeder([
+            'act' => 'GetSemester',
+            'filter' => "a_periode_aktif = '1'",
+            'order' => "id_semester desc"
+        ]);
+        $getProdi = new NeoFeeder([
+            'act' => 'GetProdi',
+            'order' => 'nama_jenjang_pendidikan, nama_program_studi',
+            'filter'=>"status='A'"
+        ]);
+
+        if($request->ajax()){
+            $getMahasiswa=new NeoFeeder([
+                'act'=>'GetListAnggotaAktivitasMahasiswa',
+                'order'=>'nim',
+                'filter'=>"status_sync='belum sync'"
+            ]);
+            return $getMahasiswa->getData();
+
+        }
+        return view('dashboard.referensi.list-anggota',[
+            'semester' => $getSemester->getData(),
+            'prodi'=>$getProdi->getData(),
+        ]);
+    }
     public function agama(Request $request)
     {
         if($request->ajax()) {

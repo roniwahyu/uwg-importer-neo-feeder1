@@ -37,6 +37,12 @@
                 <span class="menu-title">Aktivitas Mahasiswa</span>
             </a>
         </li>
+        <li class="nav-item {{ Request::is('dashboard/anggota-aktivitas*') ? 'active' : '' }}">
+            <a class="nav-link" href="{{ url('dashboard/anggota-aktivitas') }}">
+                <i class="fa-solid fa-flask fa-fw mr-2"></i>
+                <span class="menu-title">Anggota Aktivitas</span>
+            </a>
+        </li>
         <li class="nav-item {{ Request::is('dashboard/bimbingan-mahasiswa*') ? 'active' : '' }}">
             <a class="nav-link" href="{{ url('dashboard/bimbingan-mahasiswa') }}">
                 <i class="fa-solid fa-flask fa-fw mr-2"></i>
@@ -58,13 +64,20 @@
                     </li>
                     <li class="nav-item"><a class="nav-link" href="{{ url('dashboard/ref-aktivitas') }}">Aktivitas Mahasiswa</a>
                     </li>
+                    <li class="nav-item"><a class="nav-link" href="{{ url('dashboard/ref-jenis-aktivitas') }}">Jenis
+                            Aktivitas</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ url('dashboard/ref-listanggota') }}">Anggota Aktivitas</a>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="{{ url('dashboard/ref-listbimbing') }}">Bimbingan Mahasiswa</a>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="{{ url('dashboard/ref-listmahasiswa') }}">List Mahasiswa</a>
+                    </li>
                     <li class="nav-item"><a class="nav-link" href="{{ url('dashboard/ref-agama') }}">Agama</a></li>
                     <li class="nav-item"><a class="nav-link" href="{{ url('dashboard/ref-alat-transportasi') }}">Alat
                             Transportasi</a></li>
                     <li class="nav-item"><a class="nav-link" href="{{ url('dashboard/ref-jalur-daftar') }}">Jalur
                             Daftar</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{{ url('dashboard/ref-jenis-aktivitas') }}">Jenis
-                            Aktivitas</a></li>
+                   
                     <li class="nav-item"><a class="nav-link" href="{{ url('dashboard/ref-jenis-tinggal') }}">Jenis
                             Tinggal</a></li>
                     <li class="nav-item"><a class="nav-link"
