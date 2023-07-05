@@ -6,7 +6,7 @@
                 <span class="menu-title">Profil</span>
             </a>
         </li>
-        
+
         <li class="nav-item {{ Request::is('dashboard/mahasiswa*') ? 'active' : '' }}">
             <a class="nav-link" href="{{ url('dashboard/mahasiswa') }}">
                 <i class="fa-solid fa-users fa-fw mr-2"></i>
@@ -26,32 +26,48 @@
             </a>
         </li>
         {{-- <li class="nav-item {{ Request::is('dashboard/kelas*') ? 'active' : '' }}">
-            <a class="nav-link" href="{{ url('dashboard/kelas') }}">
-                <i class="fa-solid fa-chalkboard-user fa-fw mr-2"></i>
-                <span class="menu-title">Kelas Perkuliahan</span>
-            </a>
+        <a class="nav-link" href="{{ url('dashboard/kelas') }}">
+            <i class="fa-solid fa-chalkboard-user fa-fw mr-2"></i>
+            <span class="menu-title">Kelas Perkuliahan</span>
+        </a>
         </li> --}}
-        <li class="nav-item {{ Request::is('dashboard/aktivitas-mahasiswa*') ? 'active' : '' }}">
-            <a class="nav-link" href="{{ url('dashboard/aktivitas-mahasiswa') }}">
-                <i class="fa-solid fa-flask fa-fw mr-2"></i>
-                <span class="menu-title">Aktivitas Mahasiswa</span>
+
+
+
+        <li class="nav-item {{ Request::is('dashboard/impor*') ? 'active' : '' }}">
+            <a class="nav-link" data-toggle="collapse" href="#impor" aria-expanded="false" aria-controls="impor">
+                <i class="fa-solid fa-file-lines fa-fw mr-2"></i>
+                <span class="menu-title">Import Data</span>
+                <i class="menu-arrow"></i>
             </a>
-        </li>
-        <li class="nav-item {{ Request::is('dashboard/anggota-aktivitas*') ? 'active' : '' }}">
-            <a class="nav-link" href="{{ url('dashboard/anggota-aktivitas') }}">
-                <i class="fa-solid fa-flask fa-fw mr-2"></i>
-                <span class="menu-title">Anggota Aktivitas</span>
-            </a>
-        </li>
-        <li class="nav-item {{ Request::is('dashboard/bimbingan-mahasiswa*') ? 'active' : '' }}">
-            <a class="nav-link" href="{{ url('dashboard/bimbingan-mahasiswa') }}">
-                <i class="fa-solid fa-flask fa-fw mr-2"></i>
-                <span class="menu-title">Bimbingan Mahasiswa</span>
-            </a>
+            <div class="collapse {{ Request::is('dashboard/impor*') ? 'show' : '' }}" id="impor">
+                <ul class="nav flex-column sub-menu">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url('dashboard/bimbingan-mahasiswa') }}">
+                            <span class="menu-title">Bimbingan Mahasiswa</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url('dashboard/pengujian-mahasiswa') }}">
+                            <span class="menu-title">Pengujian Mahasiswa</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url('dashboard/aktivitas-mahasiswa') }}">
+                            <span class="menu-title">Aktivitas Mahasiswa</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url('dashboard/anggota-aktivitas') }}">
+                            <span class="menu-title">Anggota Aktivitas</span>
+                        </a>
+                    </li>
+                   
+                </ul>
+            </div>
         </li>
         <li class="nav-item {{ Request::is('dashboard/ref*') ? 'active' : '' }}">
-            <a class="nav-link" data-toggle="collapse" href="#referensi" aria-expanded="false"
-                aria-controls="referensi">
+            <a class="nav-link" data-toggle="collapse" href="#referensi" aria-expanded="false" aria-controls="referensi">
                 <i class="fa-solid fa-file-lines fa-fw mr-2"></i>
                 <span class="menu-title">Referensi</span>
                 <i class="menu-arrow"></i>
@@ -70,6 +86,8 @@
                     </li>
                     <li class="nav-item"><a class="nav-link" href="{{ url('dashboard/ref-listbimbing') }}">Bimbingan Mahasiswa</a>
                     </li>
+                    <li class="nav-item"><a class="nav-link" href="{{ url('dashboard/ref-listuji') }}">Pengujian Mahasiswa</a>
+                    </li>
                     <li class="nav-item"><a class="nav-link" href="{{ url('dashboard/ref-listmahasiswa') }}">List Mahasiswa</a>
                     </li>
                     <li class="nav-item"><a class="nav-link" href="{{ url('dashboard/ref-agama') }}">Agama</a></li>
@@ -77,21 +95,17 @@
                             Transportasi</a></li>
                     <li class="nav-item"><a class="nav-link" href="{{ url('dashboard/ref-jalur-daftar') }}">Jalur
                             Daftar</a></li>
-                   
+
                     <li class="nav-item"><a class="nav-link" href="{{ url('dashboard/ref-jenis-tinggal') }}">Jenis
                             Tinggal</a></li>
-                    <li class="nav-item"><a class="nav-link"
-                            href="{{ url('dashboard/ref-jenjang-pendidikan') }}">Jenjang Pendidikan</a></li>
-                    <li class="nav-item"><a class="nav-link"
-                            href="{{ url('dashboard/ref-kebutuhan-khusus') }}">Kebutuhan Khusus</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ url('dashboard/ref-jenjang-pendidikan') }}">Jenjang Pendidikan</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ url('dashboard/ref-kebutuhan-khusus') }}">Kebutuhan Khusus</a></li>
                     <li class="nav-item"><a class="nav-link" href="{{ url('dashboard/ref-negara') }}">Negara</a></li>
                     <li class="nav-item"><a class="nav-link" href="{{ url('dashboard/ref-pekerjaan') }}">Pekerjaan</a>
                     </li>
-                    <li class="nav-item"><a class="nav-link"
-                            href="{{ url('dashboard/ref-pembiayaan') }}">Pembiayaan</a>
+                    <li class="nav-item"><a class="nav-link" href="{{ url('dashboard/ref-pembiayaan') }}">Pembiayaan</a>
                     </li>
-                    <li class="nav-item"><a class="nav-link"
-                            href="{{ url('dashboard/ref-penghasilan') }}">Penghasilan</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ url('dashboard/ref-penghasilan') }}">Penghasilan</a></li>
                     <li class="nav-item"><a class="nav-link" href="{{ url('dashboard/ref-prodi') }}">Program Studi</a>
                     </li>
                     <li class="nav-item"><a class="nav-link" href="{{ url('dashboard/ref-wilayah') }}">Wilayah</a></li>
@@ -99,8 +113,7 @@
             </div>
         </li>
         <li class="nav-item {{ Request::is('dashboard/sandbox*') ? 'active' : '' }}">
-            <a class="nav-link" data-toggle="collapse" href="#pengaturan" aria-expanded="false"
-                aria-controls="pengaturan">
+            <a class="nav-link" data-toggle="collapse" href="#pengaturan" aria-expanded="false" aria-controls="pengaturan">
                 <i class="fa-solid fa-gears fa-fw mr-2"></i>
                 <span class="menu-title">Pengaturan</span>
                 <i class="menu-arrow"></i>

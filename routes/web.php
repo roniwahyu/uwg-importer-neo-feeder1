@@ -14,6 +14,7 @@ use App\Http\Controllers\LogImportController;
 use App\Http\Controllers\MahasiswaController;
 use App\Http\Controllers\ReferensiController;
 use App\Http\Controllers\MataKuliahController;
+use App\Http\Controllers\PengujianMahasiswa;
 
 /*
 |--------------------------------------------------------------------------
@@ -55,6 +56,10 @@ Route::middleware('authneofeeder')->group(function() {
             Route::post('bimbingan-mahasiswa', [BimbinganMahasiswa::class, 'store']);
             Route::get('bimbingan-dosen', [BimbinganMahasiswa::class, 'getDosen']);
 
+            Route::get('pengujian-mahasiswa', [PengujianMahasiswa::class, 'index']);
+            Route::post('pengujian-mahasiswa', [PengujianMahasiswa::class, 'store']);
+            Route::get('pengujian-dosen', [PengujianMahasiswa::class, 'getDosen']);
+
             Route::get('anggota-aktivitas', [AnggotaAktivitas::class, 'index']);
             Route::post('anggota-aktivitas', [AnggotaAktivitas::class, 'store']);
 
@@ -80,6 +85,7 @@ Route::middleware('authneofeeder')->group(function() {
             Route::get('ref-listbimbing', [ReferensiController::class, 'listbimbing']);
             Route::get('ref-listmahasiswa', [ReferensiController::class, 'listmahasiswa']);
             Route::get('ref-listanggota', [ReferensiController::class, 'listanggotaaktivitas']);
+            Route::get('ref-listuji', [ReferensiController::class, 'listujian']);
             Route::get('log-import', [LogImportController::class, 'index']);
 
             Route::get('informasi', [InformasiController::class, 'index']);
