@@ -6,7 +6,9 @@ Importer aplikasi PDDIKTI Neo Feeder menggunakan file excel. Aplikasi ini dikemb
 
 ## Fitur
 
--   Insert Bimbingan, Anggota Aktivitas dan Aktivitas Mahasiswa :white_check_mark:
+-   Insert Bimbingan dan referensi tabel Bimbingan :white_check_mark:
+-   Insert Pengujian dan referensi tabel Pengujian :white_check_mark:
+-   Insert Anggota Aktivitas dan Aktivitas Mahasiswa dan referensi Aktivitas  
 -   Insert Biodata Mahasiswa :white_check_mark:
 -   Insert Riwayat Pendidikan Mahasiswa :white_check_mark:
 -   Insert Mata Kuliah :white_check_mark:
