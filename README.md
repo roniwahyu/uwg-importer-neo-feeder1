@@ -6,6 +6,7 @@ Importer aplikasi PDDIKTI Neo Feeder menggunakan file excel. Aplikasi ini dikemb
 
 ## Fitur
 
+-   Insert Bimbingan, Anggota Aktivitas dan Aktivitas Mahasiswa :white_check_mark:
 -   Insert Biodata Mahasiswa :white_check_mark:
 -   Insert Riwayat Pendidikan Mahasiswa :white_check_mark:
 -   Insert Mata Kuliah :white_check_mark:
@@ -92,7 +93,8 @@ http://127.0.0.1:8000
 
 ## Kontak
 
-Email : rivan.hadinata@gmail.com
+Email : rivan.hadinata@gmail.com (core)
+syahroni@widyagama.ac.id (update)
 
 <br/>
 
