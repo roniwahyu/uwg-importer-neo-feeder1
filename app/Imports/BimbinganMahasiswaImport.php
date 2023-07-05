@@ -11,14 +11,18 @@ use Maatwebsite\Excel\Concerns\ToCollection;
 use Maatwebsite\Excel\Concerns\SkipsFailures;
 use Maatwebsite\Excel\Concerns\SkipsOnFailure;
 use Maatwebsite\Excel\Concerns\WithHeadingRow;
+use Maatwebsite\Excel\Concerns\WithMultipleSheets;
+use Maatwebsite\Excel\Concerns\WithTitle;
 use Maatwebsite\Excel\Concerns\WithValidation;
+
 
 class BimbinganMahasiswaImport implements
     ToCollection,
     WithHeadingRow,
     WithValidation,
     SkipsOnError,
-    SkipsOnFailure
+    SkipsOnFailure,
+    WithTitle
 {
     use Importable, SkipsErrors, SkipsFailures;
 
@@ -34,6 +38,11 @@ class BimbinganMahasiswaImport implements
     {
         return 3;
     }
+    public function title(): string
+    {
+        return 'template';
+    }
+
 
     public function rules(): array
     {

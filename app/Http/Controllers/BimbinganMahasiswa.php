@@ -41,6 +41,7 @@ class BimbinganMahasiswa extends Controller
 
         $fileUpload = $request->file('file');
         $bimbingan = new BimbinganMahasiswaImport;
+        $bimbingan->title('template');
         $bimbingan->import($fileUpload);
 
         if($bimbingan->failures()->isNotEmpty()) {
@@ -48,12 +49,12 @@ class BimbinganMahasiswa extends Controller
         } else {
             $dataBimbingan = $bimbingan->toArray($fileUpload);
             // print_r($dataBimbingan);
+            // return $dataBimbingan;
             foreach ($dataBimbingan[0] as $key => $data) {
                 try {
                     $recordInsertBimbinganMahasiswa = [
                         'id_aktivitas' => $data['id_aktivitas'],
                         'id_kategori_kegiatan' => $data['id_kategori_kegiatan'],
-                        // 'id_dosen' => $data['id_dosen'],
                         'id_dosen' => ($this->getDosen($data['nidn']))['id_dosen'],
                         'pembimbing_ke' => $data['pembimbing_ke'],
 
@@ -70,20 +71,20 @@ class BimbinganMahasiswa extends Controller
                         ImportLog::create([
                             'act' => 'InsertBimbingMahasiswa',
                             'status' => 'Sukses',
-                            'description' => 'Bimbingan Mahasiswa ' . $data['id_aktivitas'] . ' sukses diimport'
+                            'description' => 'Bimbingan Mahasiswa NIDN:'.$data['nidn'].' IDAKTV: ' . $data['id_aktivitas'] . ' sukses diimport'
                         ]);
                     } else {
                         ImportLog::create([
                             'act' => 'InsertBimbingMahasiswa',
                             'status' => 'Gagal',
-                            'description' => 'Bimbingan Mahasiswa ' . $data['id_aktivitas'] . ' gagal diimport. ' . $responseInsertBimbinganMahasiswa['error_desc']
+                            'description' => 'Bimbingan Mahasiswa NIDN:'.$data['nidn'].' IDAKTV: ' . $data['id_aktivitas'] . ' gagal diimport. ' . $responseInsertBimbinganMahasiswa['error_desc']
                         ]);
                     }
 
                 } catch (\Throwable $th) {
                     //throw $th;
                 }
-            }
+            } 
 
             return redirect()->back()->with('success', 'Sukses import file. Riwayat import dapat dilihat pada menu Log Import');
         }
