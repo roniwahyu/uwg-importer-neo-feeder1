@@ -61,6 +61,7 @@
                             <tr>
                                 <th>#</th>
                                 <th>ID Aktivitas</th>
+                                <th>ID Anggota</th>
                                 <th>NIM</th>
                                 <th>Nama Mhs</th>
                                 <th>Judul</th>
@@ -72,6 +73,7 @@
                             <tr>
                                 <th>#</th>
                                 <th>ID Aktivitas</th>
+                                <th>ID Anggota</th>
                                 <th>NIM</th>
                                 <th>Nama Mhs</th>
                                 <th>Judul</th>
@@ -123,6 +125,13 @@
                 },
                 
                 {
+
+                    data: 'id_anggota',
+                    orderable: false,
+                    searchable: false
+                },
+                
+                {
                     data: 'nim'
                 },
                 {
@@ -144,7 +153,7 @@
             } */
             initComplete: function () {
             this.api()
-                .columns([2,3,5])
+                .columns([3,4,5])
                 .every(function () {
                     var column = this;
                     var select = $('<select><option value=""></option></select>')
