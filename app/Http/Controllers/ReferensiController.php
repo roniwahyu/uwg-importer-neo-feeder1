@@ -84,6 +84,32 @@ class ReferensiController extends Controller
             'prodi'=>$getProdi->getData(),
         ]);
     }
+    public function listujian(Request $request){
+        $getSemester = new NeoFeeder([
+            'act' => 'GetSemester',
+            'filter' => "a_periode_aktif = '1'",
+            'order' => "id_semester desc"
+        ]);
+        $getProdi = new NeoFeeder([
+            'act' => 'GetProdi',
+            'order' => 'nama_jenjang_pendidikan, nama_program_studi',
+            'filter'=>"status='A'"
+        ]);
+
+        if($request->ajax()){
+            $getUjian=new NeoFeeder([
+                'act'=>'GetListUjiMahasiswa',
+                'order'=>'nidn',
+                'filter'=>"status_sync='belum sync'"
+            ]);
+            return $getUjian->getData();
+
+        }
+        return view('dashboard.referensi.list-uji',[
+            'semester' => $getSemester->getData(),
+            'prodi'=>$getProdi->getData(),
+        ]);
+    }
     public function listmahasiswa(Request $request){
         $getSemester = new NeoFeeder([
             'act' => 'GetSemester',
